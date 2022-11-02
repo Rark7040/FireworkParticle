@@ -1,0 +1,31 @@
+{
+  "name": "rarkhopper/gacha",
+  "license": "PolyForm Internal Use 1.0.0",
+  "description": "firework particle api",
+  "require": {
+    "php": "8.*",
+    "php-64bit": "*",
+    "phpstan/phpstan": "*"
+  },
+  "require-dev": {
+    "pocketmine/pocketmine-mp": "4.*",
+    "roave/security-advisories": "dev-latest",
+    "ext-ctype": "*",
+    "ext-curl": "*",
+    "ext-date": "*",
+    "ext-hash": "*",
+    "ext-openssl": "*",
+    "ext-pcre": "*",
+    "ext-phar": "*",
+    "ext-pthreads": "*",
+    "ext-reflection": "*",
+    "ext-sockets": "*",
+    "ext-spl": "*",
+    "ext-yaml": "*",
+    "ext-zip": "*",
+    "ext-zlib": "*",
+    "ext-sqlite3": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*"
+  }
+}
