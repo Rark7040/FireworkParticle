@@ -9,7 +9,6 @@
   },
   "require-dev": {
     "pocketmine/pocketmine-mp": "4.*",
-    "pocketmine/bedrock-protocol": "14.0.0 for Minecraft Bedrock 1.19.40",
     "roave/security-advisories": "dev-latest",
     "ext-ctype": "*",
     "ext-curl": "*",
