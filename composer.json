@@ -1,6 +1,6 @@
 {
-  "name": "rarkhopper/gacha",
-  "license": "PolyForm Internal Use 1.0.0",
+  "name": "rarkhopper/firework_particle",
+  "license": "MIT",
   "description": "firework particle api",
   "require": {
     "php": "8.*",
