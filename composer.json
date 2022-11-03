@@ -1,6 +1,6 @@
 {
   "name": "rarkhopper/firework_particle",
-  "license": "PolyForm Internal Use 1.0.0",
+  "license": "MIT",
   "description": "firework particle api",
   "require": {
     "php": "8.*",
