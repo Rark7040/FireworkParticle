@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\fireworks_particle;
+namespace rarkhopper\firework_particle;
 
 class BurstPattern{
 	protected FireworkType $type;
@@ -29,14 +29,14 @@ class BurstPattern{
 	 * @return FireworkType
 	 */
 	public function getType():FireworkType{
-		return clone $this->type;
+		return $this->type;
 	}
 	
 	/**
 	 * @return FireworkColor
 	 */
 	public function getColor():FireworkColor{
-		return clone $this->color;
+		return $this->color;
 	}
 	
 	/**

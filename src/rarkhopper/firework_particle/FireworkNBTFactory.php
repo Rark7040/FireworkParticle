@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\fireworks_particle;
+namespace rarkhopper\firework_particle;
 
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\ListTag;
@@ -51,6 +51,6 @@ class FireworkNBTFactory{
 		$explosion->setByte(self::NBT_FIREWORK_TRAIL, $pattern->getTrail());
 		$explosions = $tag->getListTag(self::NBT_FIREWORK_EXPLOSIONS)?? new ListTag();
 		$explosions->push($explosion);
-		$tag->setTag(self::NBT_FIREWORK_EXPLOSIONS, $explosions);
+		$tag->getCompoundTag(self::NBT_FIREWORKS)?->setTag(self::NBT_FIREWORK_EXPLOSIONS, $explosions);
 	}
 }

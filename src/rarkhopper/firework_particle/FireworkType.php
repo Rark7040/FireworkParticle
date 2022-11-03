@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\fireworks_particle;
+namespace rarkhopper\firework_particle;
 
 use pocketmine\utils\EnumTrait;
 

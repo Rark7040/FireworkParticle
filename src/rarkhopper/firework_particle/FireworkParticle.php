@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\fireworks_particle;
+namespace rarkhopper\firework_particle;
 
 use pocketmine\math\Vector3;
 use pocketmine\world\particle\Particle;
@@ -27,6 +27,6 @@ class FireworkParticle implements Particle{
 	 */
 	public function encode(Vector3 $pos):array{
 		$nbt = $this->nbt_factory->getFireworkNBT(...$this->patterns);
-		return $this->converter->getSounds($nbt, $pos) + $this->converter->getActorPackets($nbt, $pos);
+		return array_merge($this->converter->getSounds($nbt, $pos), $this->converter->getActorPackets($nbt, $pos));
 	}
 }

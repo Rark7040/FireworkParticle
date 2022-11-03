@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\fireworks_particle;
+namespace rarkhopper\firework_particle;
 
-use Generator;
 use LogicException;
 use pocketmine\entity\Entity;
 use pocketmine\math\Vector3;
