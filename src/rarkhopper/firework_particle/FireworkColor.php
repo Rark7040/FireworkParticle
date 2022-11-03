@@ -70,4 +70,9 @@ class FireworkColor{
 	public function getColor():string{
 		return $this->color_id;
 	}
+	
+	public static function randomColor():self{
+		$colors = array_values(self::getAll());
+		return $colors[mt_rand(0, count($colors)-1)];
+	}
 }
