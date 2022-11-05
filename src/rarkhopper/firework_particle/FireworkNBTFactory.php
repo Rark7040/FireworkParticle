@@ -16,15 +16,12 @@ class FireworkNBTFactory{
 	const NBT_FIREWORK_EXPLOSIONS = 'Explosions';
 	
 	/**
-	 * @param BurstPattern ...$patterns
+	 * @param BurstPattern $pattern
 	 * @return CompoundTag
 	 */
-	public function getFireworkNBT(BurstPattern ...$patterns):CompoundTag{
+	public function getFireworkNBT(BurstPattern $pattern):CompoundTag{
 		$nbt = $this->createDefaultTag();
-		
-		foreach ($patterns as $pattern){
-			$this->input($nbt, $pattern);
-		}
+		$this->input($nbt, $pattern);
 		return $nbt;
 	}
 	
@@ -45,7 +42,7 @@ class FireworkNBTFactory{
 	protected function input(CompoundTag $tag, BurstPattern $pattern):void{
 		$explosion = new CompoundTag;
 		$explosion->setByte(self::NBT_FIREWORK_TYPE, $pattern->getType()->getType());
-		$explosion->setByteArray(self::NBT_FIREWORK_COLOR, $pattern->getColor()->getColor());
+		$explosion->setByteArray(self::NBT_FIREWORK_COLOR, $pattern->getColor()->getColors());
 		$explosion->setByteArray(self::NBT_FIREWORK_FADE, $pattern->getFade());
 		$explosion->setByte(self::NBT_FIREWORK_FLICKER, $pattern->getFlicker());
 		$explosion->setByte(self::NBT_FIREWORK_TRAIL, $pattern->getTrail());
