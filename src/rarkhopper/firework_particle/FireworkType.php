@@ -59,6 +59,9 @@ class FireworkType{
 		return null;
 	}
 	
+	/**
+	 * @return static
+	 */
 	public static function randomType():self{
 		$types = array_values(FireworkType::getAll());
 		return $types[mt_rand(0, count($types)-1)];
