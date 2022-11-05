@@ -4,20 +4,20 @@ declare(strict_types=1);
 namespace rarkhopper\firework_particle;
 
 class BurstPattern{
-	protected FireworkType $type;
+	protected FireworkTypeEnum $type;
 	protected FireworkColor $color;
 	protected FireworkColor $fade;
 	protected int $flicker;
 	protected int $trail;
 	
 	/**
-	 * @param FireworkType $type
+	 * @param FireworkTypeEnum $type
 	 * @param FireworkColor $color
 	 * @param FireworkColor|null $fade
 	 * @param bool $flicker
 	 * @param bool $trail
 	 */
-	public function __construct(FireworkType $type, FireworkColor $color, ?FireworkColor $fade = null, bool $flicker = false, bool $trail = false){
+	public function __construct(FireworkTypeEnum $type, FireworkColor $color, ?FireworkColor $fade = null, bool $flicker = false, bool $trail = false){
 		$this->type = $type;
 		$this->color = $color;
 		$this->fade = $fade?? '';
@@ -26,9 +26,9 @@ class BurstPattern{
 	}
 	
 	/**
-	 * @return FireworkType
+	 * @return FireworkTypeEnum
 	 */
-	public function getType():FireworkType{
+	public function getType():FireworkTypeEnum{
 		return $this->type;
 	}
 	
