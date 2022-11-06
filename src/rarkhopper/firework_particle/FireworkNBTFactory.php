@@ -43,7 +43,7 @@ class FireworkNBTFactory{
 		$explosion = new CompoundTag;
 		$explosion->setByte(self::NBT_FIREWORK_TYPE, $pattern->getType()->getType());
 		$explosion->setByteArray(self::NBT_FIREWORK_COLOR, $pattern->getColor()->getColors());
-		$explosion->setByteArray(self::NBT_FIREWORK_FADE, $pattern->getFade());
+		$explosion->setByteArray(self::NBT_FIREWORK_FADE, $pattern->getFade()->getColors());
 		$explosion->setByte(self::NBT_FIREWORK_FLICKER, $pattern->getFlicker());
 		$explosion->setByte(self::NBT_FIREWORK_TRAIL, $pattern->getTrail());
 		$explosions = $tag->getListTag(self::NBT_FIREWORK_EXPLOSIONS)?? new ListTag();

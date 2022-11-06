@@ -20,7 +20,7 @@ class BurstPattern{
 	public function __construct(FireworkTypeEnum $type, FireworkColor $color, ?FireworkColor $fade = null, bool $flicker = false, bool $trail = false){
 		$this->type = $type;
 		$this->color = $color;
-		$this->fade = $fade?? '';
+		$this->fade = $fade?? new FireworkColor();
 		$this->flicker = (int) $flicker;
 		$this->trail = (int) $trail;
 	}
@@ -40,9 +40,9 @@ class BurstPattern{
 	}
 	
 	/**
-	 * @return string
+	 * @return FireworkColor
 	 */
-	public function getFade():string{
+	public function getFade():FireworkColor{
 		return $this->fade;
 	}
 	
