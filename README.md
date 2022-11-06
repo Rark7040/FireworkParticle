@@ -8,7 +8,9 @@
 
 PocketMine-MPのパーティクルのように花火を出せるようになるVirionライブラリです。<br>
 `PocketMine-MP v4.10.0`以上でのみ動作が保証されます。
-
+<br>
+<br>
+<br>
 
 
 ## ・Usage
@@ -32,7 +34,9 @@ $world->addParticle($v, new FireworkParticle(
 ));
 
 ```
-
+<br>
+<br>
+<br>
 
 ## ・Install
 1. [VirionTools](https://github.com/ifera-mc/VirionTools)を`plugins`の中に配置します
