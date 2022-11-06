@@ -1,48 +1,48 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\fireworks_particle;
+namespace rarkhopper\firework_particle;
 
 class BurstPattern{
-	protected FireworkType $type;
+	protected FireworkTypeEnum $type;
 	protected FireworkColor $color;
-	protected string $fade;
+	protected FireworkColor $fade;
 	protected int $flicker;
 	protected int $trail;
 	
 	/**
-	 * @param FireworkType $type
+	 * @param FireworkTypeEnum $type
 	 * @param FireworkColor $color
-	 * @param string $fade
-	 * @param int $flicker
-	 * @param int $trail
+	 * @param FireworkColor|null $fade
+	 * @param bool $flicker
+	 * @param bool $trail
 	 */
-	public function __construct(FireworkType $type, FireworkColor $color, string $fade = '', int $flicker = 0, int $trail = 0){
+	public function __construct(FireworkTypeEnum $type, FireworkColor $color, ?FireworkColor $fade = null, bool $flicker = false, bool $trail = false){
 		$this->type = $type;
 		$this->color = $color;
-		$this->fade = $fade;
-		$this->flicker = $flicker;
-		$this->trail = $trail;
+		$this->fade = $fade?? new FireworkColor();
+		$this->flicker = (int) $flicker;
+		$this->trail = (int) $trail;
 	}
 	
 	/**
-	 * @return FireworkType
+	 * @return FireworkTypeEnum
 	 */
-	public function getType():FireworkType{
-		return clone $this->type;
+	public function getType():FireworkTypeEnum{
+		return $this->type;
 	}
 	
 	/**
 	 * @return FireworkColor
 	 */
 	public function getColor():FireworkColor{
-		return clone $this->color;
+		return $this->color;
 	}
 	
 	/**
-	 * @return string
+	 * @return FireworkColor
 	 */
-	public function getFade():string{
+	public function getFade():FireworkColor{
 		return $this->fade;
 	}
 	

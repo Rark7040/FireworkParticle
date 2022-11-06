@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\fireworks_particle;
+namespace rarkhopper\firework_particle;
 
-use Generator;
 use LogicException;
 use pocketmine\entity\Entity;
 use pocketmine\math\Vector3;
@@ -68,9 +67,9 @@ class NBTtoPacketsConverter{
 	 * @return LevelSoundEventPacket
 	 */
 	protected function createSoundPacket(int $value, Vector3 $v):LevelSoundEventPacket{
-		$enum_type = FireworkType::getByValue($value);
+		$enum_type = FireworkTypeEnum::getByValue($value);
 		return match(true){
-			FireworkType::SMALL_SPHERE()->equals($enum_type)
+			FireworkTypeEnum::SMALL_SPHERE()->equals($enum_type)
 			=> LevelSoundEventPacket::create(
 				LevelSoundEvent::BLAST,
 				$v,
@@ -79,7 +78,7 @@ class NBTtoPacketsConverter{
 				false,
 				false
 			),
-			FireworkType::HUGE_SPHERE()->equals($enum_type)
+			FireworkTypeEnum::HUGE_SPHERE()->equals($enum_type)
 			=> LevelSoundEventPacket::create(
 				LevelSoundEvent::LARGE_BLAST,
 				$v,
@@ -88,9 +87,9 @@ class NBTtoPacketsConverter{
 				false,
 				false
 			),
-			FireworkType::STAR()->equals($enum_type),
-			FireworkType::CREEPER_HEAD()->equals($enum_type),
-			FireworkType::BURST()->equals($enum_type),
+			FireworkTypeEnum::STAR()->equals($enum_type),
+			FireworkTypeEnum::CREEPER_HEAD()->equals($enum_type),
+			FireworkTypeEnum::BURST()->equals($enum_type),
 			=> LevelSoundEventPacket::create(
 				LevelSoundEvent::LARGE_BLAST,
 				$v,

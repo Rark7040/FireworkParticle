@@ -1,18 +1,18 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\fireworks_particle;
+namespace rarkhopper\firework_particle;
 
 use pocketmine\utils\EnumTrait;
 
 /**
- * @method static FireworkType SMALL_SPHERE()
- * @method static FireworkType HUGE_SPHERE()
- * @method static FireworkType STAR()
- * @method static FireworkType CREEPER_HEAD()
- * @method static FireworkType BURST()
+ * @method static FireworkTypeEnum SMALL_SPHERE()
+ * @method static FireworkTypeEnum HUGE_SPHERE()
+ * @method static FireworkTypeEnum STAR()
+ * @method static FireworkTypeEnum CREEPER_HEAD()
+ * @method static FireworkTypeEnum BURST()
  */
-class FireworkType{
+class FireworkTypeEnum{
 	use EnumTrait {
 		__construct as enum___construct;
 	}
@@ -57,5 +57,13 @@ class FireworkType{
 			if($type->getType() === $value) return $type;
 		}
 		return null;
+	}
+	
+	/**
+	 * @return static
+	 */
+	public static function randomType():self{
+		$types = array_values(FireworkTypeEnum::getAll());
+		return $types[mt_rand(0, count($types)-1)];
 	}
 }
