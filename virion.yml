@@ -1,0 +1,4 @@
+name: FireworkParticle
+version: 1.0.0
+antigen: rarkhopper\firework_particle
+api: 4.10.0
