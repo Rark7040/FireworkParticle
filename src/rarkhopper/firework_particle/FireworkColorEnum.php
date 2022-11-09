@@ -29,7 +29,7 @@ class FireworkColorEnum{
 		__construct as enum___construct;
 	}
 	
-	protected string $color_id;
+	private string $color_id;
 	
 	/**
 	 * @return void

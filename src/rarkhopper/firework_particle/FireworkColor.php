@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace rarkhopper\firework_particle;
 
 class FireworkColor{
-	protected string $colors = '';
+	private string $colors = '';
 	
 	/**
 	 * @param FireworkColorEnum ...$colors
