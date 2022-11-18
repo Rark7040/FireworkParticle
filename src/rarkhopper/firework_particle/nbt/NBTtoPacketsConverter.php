@@ -22,6 +22,7 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\network\mcpe\protocol\types\entity\PropertySyncData;
 use pocketmine\network\mcpe\protocol\types\LevelSoundEvent;
 use pocketmine\Server;
+use rarkhopper\firework_particle\FireworkTypeEnum;
 use rarkhopper\firework_particle\nbt\FireworkNBTFactory as Factory;
 
 class NBTtoPacketsConverter{

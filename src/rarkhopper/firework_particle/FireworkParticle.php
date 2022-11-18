@@ -6,6 +6,8 @@ namespace rarkhopper\firework_particle;
 use pocketmine\math\Vector3;
 use pocketmine\world\particle\Particle;
 use pocketmine\network\mcpe\protocol\ClientboundPacket;
+use rarkhopper\firework_particle\nbt\FireworkNBTFactory;
+use rarkhopper\firework_particle\nbt\NBTtoPacketsConverter;
 
 class FireworkParticle implements Particle{
 	private BurstPattern $pattern;
