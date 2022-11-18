@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\firework_particle;
+namespace rarkhopper\firework_particle\nbt;
 
 use LogicException;
 use pocketmine\entity\Entity;
@@ -22,7 +22,8 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\network\mcpe\protocol\types\entity\PropertySyncData;
 use pocketmine\network\mcpe\protocol\types\LevelSoundEvent;
 use pocketmine\Server;
-use rarkhopper\firework_particle\FireworkNBTFactory as Factory;
+use rarkhopper\firework_particle\FireworkTypeEnum;
+use rarkhopper\firework_particle\nbt\FireworkNBTFactory as Factory;
 
 class NBTtoPacketsConverter{
 	/**

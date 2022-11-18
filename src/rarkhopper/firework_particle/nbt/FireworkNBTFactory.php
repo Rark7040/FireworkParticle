@@ -1,10 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\firework_particle;
+namespace rarkhopper\firework_particle\nbt;
 
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\ListTag;
+use rarkhopper\firework_particle\BurstPattern;
 
 class FireworkNBTFactory{
 	public const NBT_FIREWORKS = 'Fireworks';
@@ -45,8 +46,8 @@ class FireworkNBTFactory{
 			->setByte(self::NBT_FIREWORK_TYPE, $pattern->getType()->getType())
 			->setByteArray(self::NBT_FIREWORK_COLOR, $pattern->getColor()->getColors())
 			->setByteArray(self::NBT_FIREWORK_FADE, $pattern->getFade()->getColors())
-			->setByte(self::NBT_FIREWORK_FLICKER, $pattern->getFlicker()? 1: 0)
-			->setByte(self::NBT_FIREWORK_TRAIL, $pattern->getTrail()? 1: 0);
+			->setByte(self::NBT_FIREWORK_FLICKER, $pattern->isEnabledFlicker()? 1: 0)
+			->setByte(self::NBT_FIREWORK_TRAIL, $pattern->isEnabledTrail()? 1: 0);
 		$explosions = $tag->getListTag(self::NBT_FIREWORK_EXPLOSIONS)?? new ListTag();
 		$explosions->push($explosion);
 		$tag->getCompoundTag(self::NBT_FIREWORKS)?->setTag(self::NBT_FIREWORK_EXPLOSIONS, $explosions);

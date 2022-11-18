@@ -9,6 +9,7 @@ class BurstPattern{
 	private FireworkColor $fade;
 	private bool $flicker;
 	private bool $trail;
+	private bool $sound;
 	
 	/**
 	 * @param FireworkTypeEnum $type
@@ -16,13 +17,22 @@ class BurstPattern{
 	 * @param FireworkColor|null $fade
 	 * @param bool $flicker
 	 * @param bool $trail
+	 * @param bool $sound
 	 */
-	public function __construct(FireworkTypeEnum $type, FireworkColor $color, ?FireworkColor $fade = null, bool $flicker = false, bool $trail = false){
+	public function __construct(
+		FireworkTypeEnum $type,
+		FireworkColor $color,
+		?FireworkColor $fade = null,
+		bool $flicker = false,
+		bool $trail = false,
+		bool $sound = true
+	){
 		$this->type = $type;
 		$this->color = $color;
 		$this->fade = $fade?? new FireworkColor;
 		$this->flicker = $flicker;
 		$this->trail = $trail;
+		$this->sound = $sound;
 	}
 	
 	/**
@@ -49,14 +59,21 @@ class BurstPattern{
 	/**
 	 * @return bool
 	 */
-	public function getFlicker():bool{
+	public function isEnabledFlicker():bool{
 		return $this->flicker;
 	}
 	
 	/**
 	 * @return bool
 	 */
-	public function getTrail():bool{
+	public function isEnabledTrail():bool{
 		return $this->trail;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isEnabledSound():bool{
+		return $this->sound;
 	}
 }
