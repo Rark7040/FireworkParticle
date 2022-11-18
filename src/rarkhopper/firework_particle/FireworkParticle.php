@@ -27,6 +27,9 @@ class FireworkParticle implements Particle{
 	 */
 	public function encode(Vector3 $pos):array{
 		$nbt = $this->nbt_factory->getFireworkNBT($this->pattern);
-		return array_merge($this->converter->getSounds($nbt, $pos), $this->converter->getActorPackets($nbt, $pos));
+		return array_merge(
+			$this->pattern->isEnabledSound()? $this->converter->getSounds($nbt, $pos): [],
+			$this->converter->getActorPackets($nbt, $pos)
+		);
 	}
 }
