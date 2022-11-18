@@ -1,19 +1,20 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\firework_particle;
+namespace rarkhopper\firework_particle\nbt;
 
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\ListTag;
+use rarkhopper\firework_particle\BurstPattern;
 
 class FireworkNBTFactory{
-	const NBT_FIREWORKS = 'Fireworks';
-	const NBT_FIREWORK_TYPE = 'FireworkType';
-	const NBT_FIREWORK_COLOR = 'FireworkColor';
-	const NBT_FIREWORK_FADE = 'FireworkFade';
-	const NBT_FIREWORK_FLICKER = 'FireworkFlicker';
-	const NBT_FIREWORK_TRAIL = 'FireworkTrail';
-	const NBT_FIREWORK_EXPLOSIONS = 'Explosions';
+	public const NBT_FIREWORKS = 'Fireworks';
+	public const NBT_FIREWORK_TYPE = 'FireworkType';
+	public const NBT_FIREWORK_COLOR = 'FireworkColor';
+	public const NBT_FIREWORK_FADE = 'FireworkFade';
+	public const NBT_FIREWORK_FLICKER = 'FireworkFlicker';
+	public const NBT_FIREWORK_TRAIL = 'FireworkTrail';
+	public const NBT_FIREWORK_EXPLOSIONS = 'Explosions';
 	
 	/**
 	 * @param BurstPattern $pattern
@@ -41,11 +42,12 @@ class FireworkNBTFactory{
 	 */
 	protected function input(CompoundTag $tag, BurstPattern $pattern):void{
 		$explosion = new CompoundTag;
-		$explosion->setByte(self::NBT_FIREWORK_TYPE, $pattern->getType()->getType());
-		$explosion->setByteArray(self::NBT_FIREWORK_COLOR, $pattern->getColor()->getColors());
-		$explosion->setByteArray(self::NBT_FIREWORK_FADE, $pattern->getFade()->getColors());
-		$explosion->setByte(self::NBT_FIREWORK_FLICKER, $pattern->getFlicker());
-		$explosion->setByte(self::NBT_FIREWORK_TRAIL, $pattern->getTrail());
+		$explosion
+			->setByte(self::NBT_FIREWORK_TYPE, $pattern->getType()->getType())
+			->setByteArray(self::NBT_FIREWORK_COLOR, $pattern->getColor()->getColors())
+			->setByteArray(self::NBT_FIREWORK_FADE, $pattern->getFade()->getColors())
+			->setByte(self::NBT_FIREWORK_FLICKER, $pattern->isEnabledFlicker()? 1: 0)
+			->setByte(self::NBT_FIREWORK_TRAIL, $pattern->isEnabledTrail()? 1: 0);
 		$explosions = $tag->getListTag(self::NBT_FIREWORK_EXPLOSIONS)?? new ListTag();
 		$explosions->push($explosion);
 		$tag->getCompoundTag(self::NBT_FIREWORKS)?->setTag(self::NBT_FIREWORK_EXPLOSIONS, $explosions);

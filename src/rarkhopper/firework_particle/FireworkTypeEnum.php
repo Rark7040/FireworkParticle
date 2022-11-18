@@ -17,7 +17,7 @@ class FireworkTypeEnum{
 		__construct as enum___construct;
 	}
 	
-	protected int $type;
+	private int $type;
 	
 	/**
 	 * @return void
