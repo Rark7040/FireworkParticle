@@ -1,10 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace rarkhopper\firework_particle;
+namespace rarkhopper\firework_particle\nbt;
 
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\nbt\tag\ListTag;
+use rarkhopper\firework_particle\BurstPattern;
 
 class FireworkNBTFactory{
 	public const NBT_FIREWORKS = 'Fireworks';
