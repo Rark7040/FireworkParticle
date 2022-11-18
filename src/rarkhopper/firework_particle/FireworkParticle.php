@@ -8,9 +8,9 @@ use pocketmine\world\particle\Particle;
 use pocketmine\network\mcpe\protocol\ClientboundPacket;
 
 class FireworkParticle implements Particle{
-	protected BurstPattern $pattern;
-	protected FireworkNBTFactory $nbt_factory;
-	protected NBTtoPacketsConverter $converter;
+	private BurstPattern $pattern;
+	private FireworkNBTFactory $nbt_factory;
+	private NBTtoPacketsConverter $converter;
 	
 	/**
 	 * @param BurstPattern $pattern;

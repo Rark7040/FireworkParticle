@@ -22,8 +22,13 @@ use pocketmine\network\mcpe\protocol\types\entity\EntityMetadataProperties;
 use pocketmine\network\mcpe\protocol\types\entity\PropertySyncData;
 use pocketmine\network\mcpe\protocol\types\LevelSoundEvent;
 use pocketmine\Server;
+use rarkhopper\firework_particle\FireworkNBTFactory as Factory;
 
 class NBTtoPacketsConverter{
+	/**
+	 * @param CompoundTag $nbt
+	 * @return bool
+	 */
 	public function validateNBT(CompoundTag $nbt):bool{
 		return $this->getExplosionsTag($nbt) !== null;
 	}
@@ -43,7 +48,7 @@ class NBTtoPacketsConverter{
 		
 		if($explosions === null) throw new LogicException('explosions is null');
 		foreach($explosions->getAllValues() as $explosion){
-			$type = $explosion[FireworkNBTFactory::NBT_FIREWORK_TYPE]?? throw new LogicException('type was not input');
+			$type = $explosion[Factory::NBT_FIREWORK_TYPE]?? throw new LogicException('type was not input');
 			
 			if(!$type instanceof ByteTag) throw new LogicException('type is must be a ByteTag given '.get_class($type));
 			$sounds[] =  $this->createSoundPacket($type->getValue(), $v);
@@ -56,9 +61,7 @@ class NBTtoPacketsConverter{
 	 * @return ListTag|null
 	 */
 	protected function getExplosionsTag(CompoundTag $nbt):?ListTag{
-		return $nbt
-				->getCompoundTag(FireworkNBTFactory::NBT_FIREWORKS)
-				?->getListTag(FireworkNBTFactory::NBT_FIREWORK_EXPLOSIONS)?? null;
+		return $nbt->getCompoundTag(Factory::NBT_FIREWORKS)?->getListTag(Factory::NBT_FIREWORK_EXPLOSIONS)?? null;
 	}
 	
 	/**
